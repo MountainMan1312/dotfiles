@@ -50,39 +50,20 @@ PS1+=$PS1_COLOR_RESET
 PS1+=$PS1_COLOR_MAIN
 if [[ "$SSH_TTY" == "/dev/pts"* ]]; then # if this is SSH session
     PS1+="[SSH "                         # add "[SSH "
-else
-    PS1+="["
+else                                     # if not
+    PS1+="["                             # don't
 fi
 PS1+=$PS1_COLOR_RESET
 
-PS1+=$PS1_COLOR_CYAN
-PS1+="\u"
-PS1+=$PS1_COLOR_RESET
-
-PS1+=$PS1_COLOR_GREY
-PS1+="@"
-PS1+=$PS1_COLOR_RESET
-
-PS1+=$PS1_COLOR_BLUE
-PS1+="\h"
-PS1+=$PS1_COLOR_RESET
-
-PS1+=$PS1_COLOR_MAIN
-PS1+="] "
-PS1+=$PS1_COLOR_RESET
+PS1+="$PS1_COLOR_CYAN\u$PS1_COLOR_RESET" # USER
+PS1+="$PS1_COLOR_GREY@$PS1_COLOR_RESET"  # @
+PS1+="$PS1_COLOR_BLUE\h$PS1_COLOR_RESET" # HOST
+PS1+="$PS1_COLOR_MAIN] $PS1_COLOR_RESET" # ]
 
 # [DIR] >
-PS1+=$PS1_COLOR_MAIN
-PS1+="["
-PS1+=$PS1_COLOR_RESET
-
-PS1+=$PS1_COLOR_CYAN
-PS1+="\w"
-PS1+=$PS1_COLOR_RESET
-
-PS1+=$PS1_COLOR_MAIN
-PS1+="] >"
-PS1+=$PS1_COLOR_RESET
+PS1+="$PS1_COLOR_MAIN[$PS1_COLOR_RESET"    # [
+PS1+="$PS1_COLOR_CYAN\w$PS1_COLOR_RESET"   # DIR
+PS1+="$PS1_COLOR_MAIN] > $PS1_COLOR_RESET" # ] >
 ##########################################################################
 
 

@@ -47,13 +47,12 @@ PS1+="[$TTY_NUM] [\D{%F} \t] "
 PS1+=$PS1_COLOR_RESET
 
 # [SSH USER@HOST]
-PS1+=$PS1_COLOR_MAIN
+PS1+="$PS1_COLOR_MAIN[$PS1_COLOR_RESET"  # [
 if [[ "$SSH_TTY" == "/dev/pts"* ]]; then # if this is SSH session
-    PS1+="[SSH "                         # add "[SSH "
-else                                     # if not
-    PS1+="["                             # don't
+    PS1+=$PS1_COLOR_CYAN                 #
+    PS1+="SSH "                          # add "SSH "
+    PS1+=$PS1_COLOR_RESET
 fi
-PS1+=$PS1_COLOR_RESET
 
 PS1+="$PS1_COLOR_CYAN\u$PS1_COLOR_RESET" # USER
 PS1+="$PS1_COLOR_GREY@$PS1_COLOR_RESET"  # @

@@ -1,0 +1,30 @@
+# ~/.nanorc
+
+## Character limit
+set fill 74        # limit line-length to 74 chars
+set guidestripe 74 # show a guide line at 74 chars
+
+## Line-wrapping
+set atblanks       # wrap line at blanks
+set softwrap       # enable softwrapping lines
+
+## Tabs & Spaces
+set tabstospaces   # convert tabs to spaces
+set tabsize 4      # set tab size to 4 spaces
+set autoindent     # new lines have same indentation as previous line
+
+## Selection
+set zap            # Backspace / Delete selected region
+
+## UI Settings
+set constantshow   # display useful info in bottom bar
+set minibar        # filename & info on bottom bar, remove top bar
+set indicator      # scroll bar
+set linenumbers    # line numbers
+
+## Keybinds
+set smarthome      # smarter Home-key behavior
+
+
+## Syntax highlighting
+include "/usr/share/nano/*.nanorc" # enable syntax highlighting

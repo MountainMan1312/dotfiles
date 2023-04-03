@@ -16,10 +16,10 @@ fi
 # conditionally based on what kind of user is logged in.
 #
 # Breakdown of PS1 components:
-# [TTY#] [DATE TIME] [USER HOST] [DIR] >
+# [TTY#] [DATE TIME] [USER HOST] [(BRANCH) DIR] >
 #
 # Example of what the prompt should look like:
-# [1] [2023-03-28 16:02:55] [user host] [/etc/portage] >
+# [1] [2023-03-28 16:02:55] [user host] [(stable) /etc/portage] >
 #########################################################################
 # Set colors for easy reading
 PS1_COLOR_RESET="\[\e[0m\]"
@@ -59,8 +59,13 @@ PS1+="$PS1_COLOR_GREY@$PS1_COLOR_RESET"  # @
 PS1+="$PS1_COLOR_BLUE\h$PS1_COLOR_RESET" # HOST
 PS1+="$PS1_COLOR_MAIN] $PS1_COLOR_RESET" # ]
 
-# [DIR] >
+# [(BRANCH) DIR] >
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' \
+    | awk '{$1=$1;print}'
+}
 PS1+="$PS1_COLOR_MAIN[$PS1_COLOR_RESET"    # [
+PS1+="\$(parse_git_branch) "               # (BRANCH)
 PS1+="$PS1_COLOR_CYAN\w$PS1_COLOR_RESET"   # DIR
 PS1+="$PS1_COLOR_MAIN] > $PS1_COLOR_RESET" # ] >
 #########################################################################

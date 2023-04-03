@@ -1,8 +1,8 @@
 # ~/.nanorc
 
 ## Character limit
-set fill 74        # limit line-length to 74 chars
-set guidestripe 74 # show a guide line at 74 chars
+set fill 72        # limit line-length to 72 chars
+set guidestripe 73 # show a guide line at 73 chars
 
 ## Line-wrapping
 set atblanks       # wrap line at blanks

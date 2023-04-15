@@ -8,6 +8,10 @@ if [[ $- != *i* ]] ; then
 fi
 
 
+# Add to PATH
+PATH=$PATH:/home/mountainman/.cargo/bin/
+
+
 ########################################################################
 # PS1 - Primary prompt displayed before each command
 ####################################################

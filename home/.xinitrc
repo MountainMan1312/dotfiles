@@ -5,7 +5,7 @@ xhost +SI:localuser:$USER
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Set default cursor
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name XC_crosshair
 
 # Set keyboard repeat rate
 xset r rate 200 60

@@ -88,3 +88,12 @@ PS2=" > "
 alias wget="wget -c --tries=10 --timeout=10 --waitretry=30s"
 alias ls="exa -1aFghlmU --git --color=always --sort=name --time-style=iso --group-directories-first"
 ########################################################################
+
+
+########################################################################
+# Fix for Emacs vterm
+#####################
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
+########################################################################

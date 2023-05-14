@@ -94,6 +94,9 @@ alias ls="exa -1aFghlmU --git --color=always --sort=name --time-style=iso --grou
 # Fix for Emacs vterm
 #####################
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
-    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+    function clear() {
+        vterm_printf "51;Evterm-clear-scrollback";
+        tput clear;
+    }
 fi
 ########################################################################

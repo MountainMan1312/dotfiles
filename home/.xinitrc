@@ -11,4 +11,4 @@ xsetroot -cursor_name XC_crosshair
 xset r rate 200 60
 
 # Start emacs
-exec dbus-launch --exit-with-session emacs
+exec dbus-launch --exit-with-session emacs --debug-init

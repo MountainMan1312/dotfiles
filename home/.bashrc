@@ -93,6 +93,12 @@ alias ls="exa -1aFghlmU --git --color=always --sort=name --time-style=iso --grou
 ########################################################################
 # Fixes for Emacs vterm
 #######################
+if [ -z "$INSIDE_EMACS" ] ; then
+    export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} $(eval "echo $MYPSDIR}")\007"'
+else
+    export PROMPT_COMMAND=''
+fi
+
 vterm_printf() {
     if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then
         # Tell tmux to pass the escape sequences through

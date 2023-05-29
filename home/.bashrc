@@ -32,6 +32,8 @@ PS1_COLOR_RED="\[\e[91m\]"
 PS1_COLOR_YELLOW="\[\e[33m\]"
 PS1_COLOR_BLUE="\[\e[94m\]"
 PS1_COLOR_CYAN="\[\e[96m\]"
+PS1_BLINK_ON="\E[5m"
+PS1_BLINK_OFF="\E(B\E\m"
 
 if [[ "$(id -u)" == 0 ]]; then       # if root
     PS1_COLOR_MAIN=$PS1_COLOR_RED    # set main color red
@@ -71,7 +73,7 @@ parse_git_branch() {
 PS1+="$PS1_COLOR_MAIN[$PS1_COLOR_RESET"    # [
 PS1+="\$(parse_git_branch) "               # (BRANCH)
 PS1+="$PS1_COLOR_CYAN\w$PS1_COLOR_RESET"   # DIR
-PS1+="$PS1_COLOR_MAIN] > $PS1_COLOR_RESET" # ] >
+PS1+="$PS1_COLOR_MAIN] $PS1_BLINK_ON > $PS1_BLINK_OFF $PS1_COLOR_RESET" # ] >
 ########################################################################
 
 

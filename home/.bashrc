@@ -111,15 +111,16 @@ vterm_printf() {
     fi
 }
 
+vterm_prompt_end(){
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+}
+
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
     function clear() {
         vterm_printf "51;Evterm-clear-scrollback";
         tput clear;
     }
+    PS1="$ "
+    PS1=$PS1'\[$(vterm_prompt_end)\]'
 fi
-
-vterm_prompt_end(){
-    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
-}
-PS1=$PS1'\[$(vterm_prompt_end)\]'
 ########################################################################
